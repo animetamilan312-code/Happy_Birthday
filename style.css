@@ -607,29 +607,6 @@ body {
     animation: opacityHeart 1s 1s forwards;
 }
 
-
-#copy {
-    position: fixed;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1rem;
-}
-
-#copy a {
-    text-decoration: none;
-    color: #191919d7;
-}
-
-#copy p {
-    color: #4275ff;
-    text-align: center;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-
-
 @media screen and (max-width: 658px)   {
 
     .flag__birthday .flag__left {
@@ -679,7 +656,6 @@ body {
         justify-content: center;
         cursor: pointer;
         z-index: 2;
-        /* transform: scale(1); */
         transition: all .5s ease-in-out;
     }
 
@@ -756,9 +732,7 @@ body {
     }
 
     .love__img img {
- 
             width: 84px;
-
     }
 
     .content .right .image {
@@ -793,15 +767,7 @@ body {
     .right .balloon_one img{
         width: 76px !important;
     }
-
-
 }
-
-
-
-
-
-
 
 .boxMail{
     position: fixed;
