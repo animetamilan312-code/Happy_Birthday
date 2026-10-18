@@ -10,17 +10,21 @@ let currentIndexTitle = 0;
 let date__of__birth = document.querySelector(".date__of__birth span");
 let text__letter = document.querySelector(".text__letter p");
 
+// Date typing animation
 setTimeout(function () {
     let timeDatetxt = setInterval(function () {
-        if (currentIndex < charArrDate.length) {
+        if (date__of__birth && currentIndex < charArrDate.length) {
             date__of__birth.textContent += charArrDate[currentIndex];
             currentIndex++;
         }
         else {
-            let i = document.createElement("i");
-            i.className = "fa-solid fa-star";
-            document.querySelector(".date__of__birth").prepend(i);
-            document.querySelector(".date__of__birth").appendChild(i.cloneNode(true));
+            let dobContainer = document.querySelector(".date__of__birth");
+            if (dobContainer) {
+                let i = document.createElement("i");
+                i.className = "fa-solid fa-star";
+                dobContainer.prepend(i);
+                dobContainer.appendChild(i.cloneNode(true));
+            }
             clearInterval(timeDatetxt);
         }
     }, 100);
@@ -28,6 +32,8 @@ setTimeout(function () {
 
 var intervalContent;
 var intervalTitle;
+
+// Letter popup click event
 $("#btn__letter").on("click", function () {
     $(".box__letter").slideDown();
     setTimeout(function () {
@@ -35,11 +41,12 @@ $("#btn__letter").on("click", function () {
     }, 1000);
     setTimeout(function () {
         intervalTitle = setInterval(function () {
-            if (currentIndexTitle < charArrTitle.length) {
-                document.querySelector(".title__letter").textContent += charArrTitle[currentIndexTitle];
+            let titleEl = document.querySelector(".title__letter");
+            if (titleEl && currentIndexTitle < charArrTitle.length) {
+                titleEl.textContent += charArrTitle[currentIndexTitle];
                 let i = document.createElement("i");
                 i.className = "fa-solid fa-heart";
-                document.querySelector(".title__letter").appendChild(i);
+                titleEl.appendChild(i);
                 currentIndexTitle++;
             }
             else {
@@ -73,6 +80,7 @@ $("#btn__letter").on("click", function () {
     }, 6000);
 });
 
+// Close letter popup
 $(".close").on("click", function () {
     clearInterval(intervalContent);
     let titleLetterEl = document.querySelector(".title__letter");
@@ -95,9 +103,10 @@ $(".close").on("click", function () {
     $(".letter__border").slideUp();
 });
 
+// Mail Box Modal Toggle
 let mailBox = document.querySelector('.mail');
 let boxmail = document.querySelector('.boxMail');
-let closeBtn = document.querySelector('.fa-xmark');
+let closeBtn = document.querySelector('.boxMail > .fa-xmark');
 
 if (mailBox && boxmail) {
     mailBox.onclick = function () {
